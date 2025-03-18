@@ -1,6 +1,5 @@
-/* eslint-disable max-len */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable max-len */
 import React, { useEffect, useRef, useState } from 'react';
 import { Todo } from './types/todo';
 import { UserWarning } from './UserWarning';
@@ -312,7 +311,6 @@ export const App: React.FC = () => {
 
       <div className="todoapp__content">
         <header className="todoapp__header">
-          {/* this button should have `active` class only if all todos are completed */}
           {todos.length > 0 && !loading && (
             <button
               type="button"
@@ -321,7 +319,6 @@ export const App: React.FC = () => {
               onClick={handleToggleAll}
             />
           )}
-          {/* Add a todo on form submit */}
           <form onSubmit={handleAddTodo}>
             <input
               ref={newTodoInputRef}
@@ -337,7 +334,6 @@ export const App: React.FC = () => {
         </header>
 
         <section className="todoapp__main" data-cy="TodoList">
-          {/* This is a completed todo */}
           {filteredTodos.map(todo => (
             <div
               key={todo.id}
@@ -405,7 +401,6 @@ export const App: React.FC = () => {
             </div>
           ))}
         </section>
-        {/* Hide the footer if there are no todos */}
         {todos.length > 0 && (
           <footer className="todoapp__footer" data-cy="Footer">
             <span className="todo-count" data-cy="TodosCounter">
@@ -413,7 +408,6 @@ export const App: React.FC = () => {
               left
             </span>
 
-            {/* Active link should have the 'selected' class */}
             <nav className="filter" data-cy="Filter">
               <a
                 href="#/"
@@ -443,7 +437,6 @@ export const App: React.FC = () => {
               </a>
             </nav>
 
-            {/* this button should be disabled if there are no completed todos */}
             <button
               type="button"
               className="todoapp__clear-completed"
@@ -456,9 +449,6 @@ export const App: React.FC = () => {
           </footer>
         )}
       </div>
-
-      {/* DON'T use conditional rendering to hide the notification */}
-      {/* Add the 'hidden' class to hide the message smoothly */}
       <div
         data-cy="ErrorNotification"
         className={`notification is-danger is-light has-text-weight-normal ${
